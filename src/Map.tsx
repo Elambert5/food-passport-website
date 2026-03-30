@@ -178,12 +178,7 @@ const Map: React.FC<MapProps> = ({
       });
   };
 
-  const handleRefresh = () => {
-    if (mapRef.current) {
-      const center = mapRef.current.getCenter();
-      fetchNearby({ lat: center.lat, lng: center.lng });
-    }
-  };
+  // Refresh button removed as it is no longer needed
 
   return (
     <div className="relative z-0 w-full h-full min-h-0 min-w-0 bg-white dark:bg-black overflow-hidden">
@@ -214,20 +209,6 @@ const Map: React.FC<MapProps> = ({
             <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" style={{ transform: 'rotate(45deg) translateX(-0.5px) translateY(-0.5px)' }}>
               <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
             </svg>
-          </button>
-          <button 
-            onClick={handleRefresh}
-            disabled={loading}
-            className={`w-12 h-12 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md text-gray-900 dark:text-white rounded-2xl shadow-lg border border-gray-100 dark:border-zinc-800 hover:scale-105 active:scale-95 transition-all flex items-center justify-center ${loading ? 'opacity-60' : ''}`}
-            aria-label="Refresh Map"
-          >
-            {loading ? (
-              <div className="animate-spin rounded-full h-7 w-7 border-2 border-gray-900 dark:border-white border-t-transparent" />
-            ) : (
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-            )}
           </button>
         </div>
       </div>

@@ -598,32 +598,32 @@ export default function App() {
               <h4 className="font-bold mb-6 uppercase text-xs tracking-widest text-zinc-400">Legal</h4>
               <ul className="space-y-4 text-sm font-medium">
                 <li>
-                  <a href="/privacy-policy.md" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500 transition-colors flex items-center space-x-2">
+                  <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500 transition-colors flex items-center space-x-2">
                     <Shield size={14} /> <span>Privacy Policy</span>
                   </a>
                 </li>
                 <li>
-                  <a href="/terms-of-service.md" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500 transition-colors flex items-center space-x-2">
+                  <a href="/terms-of-service.html" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500 transition-colors flex items-center space-x-2">
                     <FileText size={14} /> <span>Terms of Service</span>
                   </a>
                 </li>
                 <li>
-                  <a href="/cookie-policy.md" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500 transition-colors flex items-center space-x-2">
+                  <a href="/cookie-policy.html" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500 transition-colors flex items-center space-x-2">
                     <FileText size={14} /> <span>Cookie Policy</span>
                   </a>
                 </li>
                 <li>
-                  <a href="/accessibility-statement.md" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500 transition-colors flex items-center space-x-2">
+                  <a href="/accessibility-statement.html" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500 transition-colors flex items-center space-x-2">
                     <FileText size={14} /> <span>Accessibility Statement</span>
                   </a>
                 </li>
                 <li>
-                  <a href="/disclaimer.md" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500 transition-colors flex items-center space-x-2">
+                  <a href="/disclaimer.html" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500 transition-colors flex items-center space-x-2">
                     <FileText size={14} /> <span>Disclaimer</span>
                   </a>
                 </li>
                 <li>
-                  <a href="/eula.md" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500 transition-colors flex items-center space-x-2">
+                  <a href="/eula.html" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500 transition-colors flex items-center space-x-2">
                     <FileText size={14} /> <span>End-User License Agreement (EULA)</span>
                   </a>
                 </li>
