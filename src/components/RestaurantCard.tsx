@@ -107,11 +107,11 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
           <span className="text-white">{restaurant.reviewCount} reviews</span>
           <span className="flex-1" />
           {/* Distance badge styled like rating */}
-          {restaurant.distance !== undefined && (
+          {typeof restaurant.distance === 'number' && !isNaN(restaurant.distance) ? (
             <span className="text-[10px] font-black bg-gray-50 dark:bg-zinc-800 text-white px-2 py-1 rounded-md tracking-widest whitespace-nowrap ml-2 flex items-center">
               {restaurant.distance.toFixed(1)} mi
             </span>
-          )}
+          ) : null}
         </div>
       </div>
     </div>

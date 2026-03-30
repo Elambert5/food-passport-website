@@ -233,7 +233,7 @@ const Map: React.FC<MapProps> = ({
 
       {/* Full Detail Modal Overlay */}
       {showFullDetail && selectedRestaurant && (
-        <div className="absolute inset-0 flex items-center justify-center z-[2000] pointer-events-none">
+        <div className="absolute inset-0 flex items-center justify-center z-[2000] pointer-events-none bg-black/70">
           <div className="relative pointer-events-auto">
             <button
               onClick={e => { e.stopPropagation(); setShowFullDetail(false); }}
@@ -244,13 +244,21 @@ const Map: React.FC<MapProps> = ({
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <RestaurantCard
-              restaurant={selectedRestaurant}
-              isFavorite={favoriteIds.has(selectedRestaurant.id)}
-              onToggleFavorite={onToggleFavorite}
-              onClick={undefined}
-              disableClick
-            />
+            <React.Suspense fallback={<div className="p-8 bg-white dark:bg-zinc-900 rounded-2xl shadow-xl text-black dark:text-white">Loading details...</div>}>
+              {selectedRestaurant && selectedRestaurant.id && selectedRestaurant.name && selectedRestaurant.location ? (
+                <RestaurantCard
+                  restaurant={selectedRestaurant}
+                  isFavorite={favoriteIds.has(selectedRestaurant.id)}
+                  onToggleFavorite={onToggleFavorite}
+                  onClick={undefined}
+                  disableClick
+                />
+              ) : (
+                <div className="p-8 bg-white dark:bg-zinc-900 rounded-2xl shadow-xl text-black dark:text-white">
+                  Error: Restaurant details unavailable.
+                </div>
+              )}
+            </React.Suspense>
           </div>
         </div>
       )}
