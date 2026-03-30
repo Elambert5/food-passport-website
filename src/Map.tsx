@@ -26,7 +26,8 @@ const Map: React.FC<MapProps> = ({
   const [userLocation, setUserLocation] = useState<Location>({ lat: 40.7128, lng: -74.0060 });
   const [loading, setLoading] = useState(true);
   const [mapMoving, setMapMoving] = useState(false);
-  
+  const [mapReady, setMapReady] = useState(false);
+
   const mapRef = useRef<any>(null);
   const markersRef = useRef<any[]>([]);
   const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -63,6 +64,7 @@ const Map: React.FC<MapProps> = ({
       }, 200);
 
       setupInitialLocation();
+      setMapReady(true);
     }, 100);
 
     return () => {
@@ -71,15 +73,16 @@ const Map: React.FC<MapProps> = ({
         mapRef.current.remove();
         mapRef.current = null;
       }
+      setMapReady(false);
     };
   }, []);
 
-  // Re-fetch nearby restaurants when supabaseRestaurants changes
+  // Only fetch markers when both map is ready and data is loaded
   useEffect(() => {
-    if (mapRef.current && supabaseRestaurants.length > 0) {
+    if (mapReady && mapRef.current && supabaseRestaurants.length > 0) {
       fetchNearby();
     }
-  }, [supabaseRestaurants]);
+  }, [mapReady, supabaseRestaurants]);
 
   const setupInitialLocation = () => {
     if (navigator.geolocation) {
