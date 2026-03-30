@@ -184,7 +184,7 @@ export default function App() {
         <section 
           id="home"
           className="relative h-screen flex items-center justify-center overflow-hidden pt-24"
-          style={{ backgroundImage: 'url("/0af1b647-13de-4120-b4b1-9e4ed518c46a.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}
+          style={{ backgroundImage: 'url("/Hero.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
           {/* Dull and fade hero image overlays */}
           <div className="absolute inset-0 z-0 pointer-events-none">
