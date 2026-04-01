@@ -227,90 +227,55 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="bg-black dark:bg-white text-white dark:text-black rounded-[3rem] overflow-hidden p-12 md:p-24 relative">
               <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-8 leading-[0.9]">
-                    DOWNLOAD THE APP - DISCOUNTED DISHES IN YOUR POCKET
-                  </h2>
-                  <p className="text-lg md:text-xl opacity-70 mb-12 font-medium max-w-md">
-                    Join thousands discovering the best independent restaurants and save on every meal.
-                  </p>
-                  
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <a 
-                      href="https://www.apple.com/uk/app-store/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-block text-black dark:text-white hover:opacity-90 transition-opacity m-0 p-0 w-auto h-auto border-0 bg-transparent rounded-none"
+                    <motion.div
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
                     >
-                      <img src="/Appstore.svg" alt="Download on the App Store" className="block w-[210px] h-[70px] object-contain m-0 p-0" />
-                    </a>
-
-                    <a 
-                      href="https://play.google.com/store/apps"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block text-black dark:text-white hover:opacity-90 transition-opacity m-0 p-0 w-auto h-auto border-0 bg-transparent rounded-none"
-                    >
-                      <img src="/Googleplay.svg" alt="Get it on Google Play" className="block h-[70px] object-contain m-0 p-0" style={{ width: 'auto', aspectRatio: '238.96/70.87' }} />
-                    </a>
-                  </div>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8, rotate: 10 }}
-                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                  viewport={{ once: true }}
-                  className="relative hidden md:block"
-                >
-                  {/* iPhone Frame */}
-                  <div className="w-72 h-[580px] bg-zinc-900 dark:bg-zinc-100 rounded-[3.5rem] border-[12px] border-zinc-900 dark:border-zinc-100 shadow-[0_0_0_2px_rgba(255,255,255,0.1),0_40px_100px_-20px_rgba(0,0,0,0.5)] mx-auto overflow-hidden relative">
-                    {/* Dynamic Island */}
-                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-30 flex items-center justify-end px-3">
-                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full blur-[1px] opacity-50" />
-                    </div>
-
-                    {/* Status Bar */}
-                    <div className="absolute top-0 inset-x-0 h-12 flex justify-between items-end px-8 pb-1 z-20 text-[10px] font-bold text-white">
-                      <span>9:41</span>
-                      <div className="flex items-center space-x-1">
-                        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12.01 21.49L23.64 7c-.45-.34-4.93-4-11.64-4C5.28 3 .81 6.66.36 7l11.63 14.49.01.01.01-.01z" /></svg>
-                        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z" /></svg>
+                      <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-8 leading-[0.9]">
+                        DOWNLOAD THE APP - DISCOUNTED DISHES IN YOUR POCKET
+                      </h2>
+                      <p className="text-lg md:text-xl opacity-70 mb-12 font-medium max-w-md">
+                        Join thousands discovering the best independent restaurants and save on every meal.
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <a 
+                          href="https://www.apple.com/uk/app-store/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-block text-black dark:text-white hover:opacity-90 transition-opacity m-0 p-0 w-auto h-auto border-0 bg-transparent rounded-none"
+                        >
+                          <img src="/Appstore.svg" alt="Download on the App Store" className="block w-[210px] h-[70px] object-contain m-0 p-0" />
+                        </a>
+                        <a 
+                          href="https://play.google.com/store/apps"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block text-black dark:text-white hover:opacity-90 transition-opacity m-0 p-0 w-auto h-auto border-0 bg-transparent rounded-none"
+                        >
+                          <img src="/Googleplay.svg" alt="Get it on Google Play" className="block h-[70px] object-contain m-0 p-0" style={{ width: 'auto', aspectRatio: '238.96/70.87' }} />
+                        </a>
                       </div>
-                    </div>
-
-                    {/* App Content */}
-                    <div className="absolute inset-0">
-                      <img 
-                        src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800" 
-                        alt="App Interface" 
-                        className="w-full h-full object-cover scale-105"
-                        referrerPolicy="no-referrer"
-                      />
-                      <div className="absolute inset-0 bg-black/30" />
-                    </div>
-
-                    {/* UI Overlay */}
-                    <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black via-black/60 to-transparent text-white z-10">
-                      <div className="text-xs font-bold uppercase tracking-widest opacity-60 mb-1">Nearby</div>
-                      <div className="text-2xl font-black tracking-tight mb-4">Green Garden Bistro</div>
-                      <div className="flex items-center space-x-2 mb-8">
-                        <div className="flex text-brand-orange">
-                          {[...Array(5)].map((_, i) => (
-                            <svg key={i} className="w-3 h-3 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                          ))}
+                    </motion.div>
+                    {/* Screenshot image for Get App section */}
+                    <div className="hidden md:flex w-full h-full items-center justify-center">
+                      <div
+                        className="relative bg-zinc-900 dark:bg-zinc-100 rounded-[2.2rem] border-[0.5px] border-zinc-900 dark:border-zinc-100 shadow-2xl"
+                        style={{ width: '284px', height: '602px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 32px 96px 0 rgba(0,0,0,0.65), 0 4px 16px 0 rgba(0,0,0,0.22)' }}
+                      >
+                        {/* Dynamic Island (optional, left for visual interest) */}
+                        <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-30 flex items-center justify-end px-3">
+                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full blur-[1px] opacity-50" />
                         </div>
-                        <span className="text-[10px] font-bold opacity-60">4.9 (1.2k reviews)</span>
+                        {/* Screenshot inside phone */}
+                        <img 
+                          src="/Screenshot.png" 
+                          alt="App Screenshot" 
+                          className="rounded-[2rem] w-[272px] h-[590px] object-cover"
+                          style={{ display: 'block', margin: 0, padding: 0, background: 'none', border: 'none' }}
+                        />
                       </div>
-                      
-                      {/* Home Indicator */}
-                      <div className="w-32 h-1.5 bg-white/30 rounded-full mx-auto mt-4" />
                     </div>
-                  </div>
-                </motion.div>
               </div>
               
               {/* Background decorative elements */}
