@@ -101,18 +101,15 @@ const Map: React.FC<MapProps> = ({
           if (mapRef.current) {
             mapRef.current.setView([loc.lat, loc.lng], 14);
             addUserMarker(loc);
-            fetchNearby(loc);
           }
         },
         () => {
           addUserMarker(userLocation);
-          fetchNearby(userLocation);
         },
         { timeout: 10000 }
       );
     } else {
       addUserMarker(userLocation);
-      fetchNearby(userLocation);
     }
   };
 
