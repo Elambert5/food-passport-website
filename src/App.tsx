@@ -155,7 +155,7 @@ export default function App() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-white dark:bg-black pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-white dark:bg-black pt-12 px-6 md:hidden"
           >
             <div className="flex flex-col space-y-6">
               {navLinks.map((link) => {
@@ -183,8 +183,8 @@ export default function App() {
         {/* Section 1: Hero */}
         <section 
           id="home"
-          className="relative h-screen flex items-center justify-center overflow-hidden pt-24"
-          style={{ backgroundImage: 'url("/Hero.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}
+          className="relative h-screen flex items-center justify-center overflow-hidden pt-12"
+          style={{ backgroundImage: 'url("/Hero.webp")', backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
           {/* Dull and fade hero image overlays */}
           <div className="absolute inset-0 z-0 pointer-events-none">
@@ -223,7 +223,7 @@ export default function App() {
         </section>
 
         {/* Section 2: Get App */}
-        <section id="get-app" className="py-24 bg-brand-bg-alt dark:bg-brand-dark">
+        <section id="get-app" className="py-12 bg-brand-bg-alt dark:bg-brand-dark">
           <div className="max-w-7xl mx-auto px-6">
             <div className="bg-black dark:bg-white text-white dark:text-black rounded-[3rem] overflow-hidden p-12 md:p-24 relative">
               <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
@@ -286,7 +286,7 @@ export default function App() {
         </section>
 
         {/* Section 3: About */}
-        <section id="about" className="py-24 bg-zinc-900 dark:bg-zinc-950">
+        <section id="about" className="py-12 bg-brand-bg-alt dark:bg-brand-dark">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <motion.div
@@ -349,7 +349,7 @@ export default function App() {
         </section>
 
         {/* Section 3: Map */}
-        <section id="map" className="pt-24 py-24 scroll-mt-24 bg-brand-bg-alt dark:bg-brand-dark">
+        <section id="map" className="pt-12 py-12 scroll-mt-24 bg-brand-bg-alt dark:bg-brand-dark">
           <div className="max-w-7xl mx-auto px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -371,7 +371,7 @@ export default function App() {
         </section>
 
         {/* Section 4: Restaurant Owner */}
-        <section id="restaurant" className="py-24 bg-zinc-900 dark:bg-zinc-950">
+        <section id="restaurant" className="py-12 bg-brand-bg-alt dark:bg-brand-dark">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div
