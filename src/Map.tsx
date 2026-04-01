@@ -77,11 +77,17 @@ const Map: React.FC<MapProps> = ({
     };
   }, []);
 
-  // Only update markers when both map is ready and supabaseRestaurants is available
+  // Use refs to always have the latest restaurant data
+  const latestRestaurantsRef = useRef<Restaurant[]>([]);
+  useEffect(() => {
+    latestRestaurantsRef.current = (supabaseRestaurants ?? []).filter(r => r && r.location);
+  }, [supabaseRestaurants]);
+
+  // Dedicated function to update markers only when both map and data are ready
   useEffect(() => {
     if (!mapReady || !mapRef.current) return;
-    // Use the latest supabaseRestaurants to update markers
-    const allWithLocation = (supabaseRestaurants ?? []).filter(r => r && r.location);
+    // Always use the latest data from the ref
+    const allWithLocation = latestRestaurantsRef.current;
     setRestaurants(allWithLocation);
     updateMarkers(allWithLocation);
   }, [mapReady, supabaseRestaurants]);
