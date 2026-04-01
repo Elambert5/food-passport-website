@@ -243,8 +243,8 @@ const Map: React.FC<MapProps> = ({
 
       {/* Full Detail Modal Overlay */}
       {showFullDetail && selectedRestaurant && (
-        <div className="absolute inset-0 flex items-center justify-center z-[2000] pointer-events-none bg-black/70">
-          <div className="relative pointer-events-auto">
+        <div className="absolute inset-0 flex items-end md:items-center justify-center z-[2000] pointer-events-none bg-black/70">
+          <div className="relative pointer-events-auto mb-0 md:mb-0 pb-0 w-full flex justify-center md:w-auto md:flex-none" style={{paddingBottom: 'env(safe-area-inset-bottom,0)'}}>
             <button
               onClick={e => { e.stopPropagation(); setShowFullDetail(false); }}
               aria-label="Close details"

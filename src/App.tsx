@@ -90,10 +90,10 @@ export default function App() {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
+    { name: 'App', href: '#get-app' },
     { name: 'About', href: '#about' },
     { name: 'Map', href: '#map' },
     { name: 'Restaurant', href: '#restaurant' },
-    { name: 'Get App', href: '#get-app' },
   ];
 
   return (
@@ -158,17 +158,18 @@ export default function App() {
             className="fixed inset-0 z-40 bg-white dark:bg-black pt-12 px-6 md:hidden"
           >
             <div className="flex flex-col space-y-6">
-              {navLinks.map((link) => {
+              {navLinks.map((link, idx) => {
                 const isGetApp = link.name === 'Get App';
+                // Add extra top margin above the first option (Home) for mobile only
+                const extraTop = idx === 0 ? 'mt-8' : '';
+                // On mobile, make Get App match other options
+                const mobileMenuStyle = "text-3xl font-black uppercase tracking-tighter";
                 return (
                   <a
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className={isGetApp
-                      ? "bg-black dark:bg-white text-white dark:text-black w-full py-4 rounded-xl text-lg font-bold uppercase tracking-wider text-center"
-                      : "text-3xl font-black uppercase tracking-tighter"
-                    }
+                    className={mobileMenuStyle + ' ' + extraTop}
                   >
                     {link.name}
                   </a>
@@ -183,7 +184,7 @@ export default function App() {
         {/* Section 1: Hero */}
         <section 
           id="home"
-          className="relative h-screen flex items-center justify-center overflow-hidden pt-12"
+          className="relative h-[85vh] sm:h-screen flex items-center justify-center overflow-hidden pt-12"
           style={{ backgroundImage: 'url("/Hero.webp")', backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
           {/* Dull and fade hero image overlays */}
@@ -288,7 +289,7 @@ export default function App() {
         {/* Section 3: About */}
         <section id="about" className="py-12 bg-brand-bg-alt dark:bg-brand-dark">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="grid gap-8 md:grid-cols-2 md:gap-16 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -355,7 +356,7 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-16"
+              className="mb-8 md:mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">EXPLORE OUR RESTAURANT MAP</h2>
               <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto text-lg">
@@ -373,7 +374,7 @@ export default function App() {
         {/* Section 4: Restaurant Owner */}
         <section id="restaurant" className="py-12 bg-brand-bg-alt dark:bg-brand-dark">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
