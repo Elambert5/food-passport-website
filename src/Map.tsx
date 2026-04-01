@@ -111,7 +111,7 @@ const Map: React.FC<MapProps> = ({
     const allWithLocation = latestRestaurantsRef.current;
     setRestaurants(allWithLocation);
     updateMarkers(allWithLocation);
-  }, [mapReady, supabaseRestaurants]);
+  }, [mapReady, supabaseRestaurants, userLocation]);
 
   const setupInitialLocation = () => {
     if (navigator.geolocation) {
