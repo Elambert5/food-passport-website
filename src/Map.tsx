@@ -77,16 +77,13 @@ const Map: React.FC<MapProps> = ({
     };
   }, []);
 
-  // Robustly fetch markers when both map is ready and supabaseRestaurants is populated
+  // Only update markers when both map is ready and supabaseRestaurants is available
   useEffect(() => {
     if (!mapReady || !mapRef.current) return;
-    // Always update markers when supabaseRestaurants changes and map is ready
-    if (supabaseRestaurants && supabaseRestaurants.length > 0) {
-      fetchNearby();
-    } else {
-      // If no restaurants, clear markers
-      updateMarkers([]);
-    }
+    // Use the latest supabaseRestaurants to update markers
+    const allWithLocation = (supabaseRestaurants ?? []).filter(r => r && r.location);
+    setRestaurants(allWithLocation);
+    updateMarkers(allWithLocation);
   }, [mapReady, supabaseRestaurants]);
 
   const setupInitialLocation = () => {
