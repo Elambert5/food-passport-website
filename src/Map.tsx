@@ -79,9 +79,30 @@ const Map: React.FC<MapProps> = ({
 
   // Use refs to always have the latest restaurant data
   const latestRestaurantsRef = useRef<Restaurant[]>([]);
+  // Calculate distance for each restaurant from user location
   useEffect(() => {
-    latestRestaurantsRef.current = (supabaseRestaurants ?? []).filter(r => r && r.location);
-  }, [supabaseRestaurants]);
+    function haversineDistance(loc1: Location, loc2: Location) {
+      const toRad = (x: number) => x * Math.PI / 180;
+      const R = 3958.8; // Radius of Earth in miles
+      const dLat = toRad(loc2.lat - loc1.lat);
+      const dLng = toRad(loc2.lng - loc1.lng);
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(toRad(loc1.lat)) * Math.cos(toRad(loc2.lat)) *
+        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    // Only add distance if userLocation and restaurant location are valid
+    const withDistance = (supabaseRestaurants ?? []).filter(r => r && r.location).map(r => ({
+      ...r,
+      distance: (userLocation && r.location && typeof r.location.lat === 'number' && typeof r.location.lng === 'number')
+        ? haversineDistance(userLocation, r.location)
+        : null
+    }));
+    latestRestaurantsRef.current = withDistance;
+  }, [supabaseRestaurants, userLocation]);
 
   // Dedicated function to update markers only when both map and data are ready
   useEffect(() => {
