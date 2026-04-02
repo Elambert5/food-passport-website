@@ -244,31 +244,50 @@ const Map: React.FC<MapProps> = ({
       {/* Full Detail Modal Overlay */}
       {showFullDetail && selectedRestaurant && (
         <div className="absolute inset-0 flex items-end md:items-center justify-center z-[2000] pointer-events-none bg-black/70">
-          <div className="relative pointer-events-auto mb-0 md:mb-0 pb-0 w-full flex justify-center md:w-auto md:flex-none" style={{paddingBottom: 'env(safe-area-inset-bottom,0)'}}>
-            <button
-              onClick={e => { e.stopPropagation(); setShowFullDetail(false); }}
-              aria-label="Close details"
-              className="absolute top-4 right-4 z-20 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm p-2 rounded-xl shadow-lg hover:scale-110 active:scale-95 transition-all"
+          {/* Mobile: full width bottom sheet; Desktop: centered card */}
+          <div
+            className="relative pointer-events-auto w-full flex justify-center md:w-auto md:flex-none mb-0 md:mb-0 pb-0"
+            style={{
+              paddingBottom: 'env(safe-area-inset-bottom,0)',
+              maxWidth: '100vw',
+            }}
+          >
+            <div
+              className="w-full px-0 sm:px-0 md:px-0 md:w-auto md:max-w-none"
+              style={{
+                maxWidth: '100vw',
+                paddingLeft: 0,
+                paddingRight: 0,
+                ...(window.innerWidth < 768
+                  ? { position: 'absolute', left: 0, right: 0, bottom: 0, margin: 0, borderRadius: 0, zIndex: 2100 }
+                  : {}),
+              }}
             >
-              <svg className="w-5 h-5 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <React.Suspense fallback={<div className="p-8 bg-white dark:bg-zinc-900 rounded-2xl shadow-xl text-black dark:text-white">Loading details...</div>}>
-              {selectedRestaurant && selectedRestaurant.id && selectedRestaurant.name && selectedRestaurant.location ? (
-                <RestaurantCard
-                  restaurant={selectedRestaurant}
-                  isFavorite={favoriteIds.has(selectedRestaurant.id)}
-                  onToggleFavorite={onToggleFavorite}
-                  onClick={undefined}
-                  disableClick
-                />
-              ) : (
-                <div className="p-8 bg-white dark:bg-zinc-900 rounded-2xl shadow-xl text-black dark:text-white">
-                  Error: Restaurant details unavailable.
-                </div>
-              )}
-            </React.Suspense>
+              <button
+                onClick={e => { e.stopPropagation(); setShowFullDetail(false); }}
+                aria-label="Close details"
+                className="absolute top-4 right-4 z-20 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm p-2 rounded-xl shadow-lg hover:scale-110 active:scale-95 transition-all"
+              >
+                <svg className="w-5 h-5 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <React.Suspense fallback={<div className="p-8 bg-white dark:bg-zinc-900 rounded-2xl shadow-xl text-black dark:text-white">Loading details...</div>}>
+                {selectedRestaurant && selectedRestaurant.id && selectedRestaurant.name && selectedRestaurant.location ? (
+                  <RestaurantCard
+                    restaurant={selectedRestaurant}
+                    isFavorite={favoriteIds.has(selectedRestaurant.id)}
+                    onToggleFavorite={onToggleFavorite}
+                    onClick={undefined}
+                    disableClick
+                  />
+                ) : (
+                  <div className="p-8 bg-white dark:bg-zinc-900 rounded-2xl shadow-xl text-black dark:text-white">
+                    Error: Restaurant details unavailable.
+                  </div>
+                )}
+              </React.Suspense>
+            </div>
           </div>
         </div>
       )}
