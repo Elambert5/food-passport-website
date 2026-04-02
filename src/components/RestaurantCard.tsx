@@ -26,7 +26,8 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
       onClick={disableClick ? undefined : () => onClick && onClick(restaurant)}
       className={[
         "bg-white dark:bg-zinc-900 rounded-[32px] overflow-hidden shadow-sm hover:shadow-md transition-all flex-shrink-0 snap-center select-none",
-        "w-[22rem] md:w-[24rem] lg:w-[26rem] xl:w-[28rem]",
+        "w-full md:w-[24rem] lg:w-[26rem] xl:w-[28rem]", // full width on mobile, fixed on desktop
+        "ml-auto", // align right edge
         disableClick ? "cursor-default" : "group cursor-pointer active:scale-[0.98]"
       ].join(' ')}
       style={{
