@@ -241,21 +241,17 @@ export default function App() {
                       </p>
                       <div className="flex flex-col sm:flex-row gap-4">
                         <a 
-                          href="https://www.apple.com/uk/app-store/" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-block text-black dark:text-white hover:opacity-90 transition-opacity m-0 p-0 w-auto h-auto border-0 bg-transparent rounded-none"
+                          className="inline-block text-gray-400 dark:text-gray-500 opacity-60 cursor-not-allowed m-0 p-0 w-auto h-auto border-0 bg-transparent rounded-none relative select-none"
                         >
-                          <img src="/Appstore.svg" alt="Download on the App Store" className="block w-[210px] h-[70px] object-contain m-0 p-0" />
+                          <img src="/Appstore.svg" alt="Download on the App Store (Coming Soon)" className="block w-[210px] h-[70px] object-contain m-0 p-0" style={{ filter: 'grayscale(1) brightness(0.9)' }} />
+                          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded shadow-lg" style={{ pointerEvents: 'none' }}>Coming Soon</span>
                         </a>
                         <a 
-                          href="https://play.google.com/store/apps"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-block text-black dark:text-white hover:opacity-90 transition-opacity m-0 p-0 w-auto h-auto border-0 bg-transparent rounded-none"
-                        >
-                          <img src="/Googleplay.svg" alt="Get it on Google Play" className="block h-[70px] object-contain m-0 p-0" style={{ width: 'auto', aspectRatio: '238.96/70.87' }} />
-                        </a>
+                            className="inline-block text-gray-400 dark:text-gray-500 opacity-60 cursor-not-allowed m-0 p-0 w-auto h-auto border-0 bg-transparent rounded-none relative select-none"
+                          >
+                            <img src="/Googleplay.svg" alt="Get it on Google Play (Coming Soon)" className="block h-[70px] object-contain m-0 p-0" style={{ width: 'auto', aspectRatio: '238.96/70.87', filter: 'grayscale(1) brightness(0.9)' }} />
+                            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded shadow-lg" style={{ pointerEvents: 'none' }}>Coming Soon</span>
+                          </a>
                       </div>
                     </motion.div>
                     {/* Screenshot image for Get App section */}
