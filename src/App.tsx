@@ -305,11 +305,11 @@ export default function App() {
                 </p>
                 <div className="grid grid-cols-2 gap-6">
                   <div className="p-6 bg-brand-bg-alt dark:bg-zinc-900 rounded-2xl">
-                    <div className="text-3xl font-black mb-2">30+</div>
+                    <div className="text-3xl font-black mb-2">-</div>
                     <div className="text-sm text-zinc-500 font-medium">Restaurants</div>
                   </div>
                   <div className="p-6 bg-brand-bg-alt dark:bg-zinc-900 rounded-2xl">
-                    <div className="text-3xl font-black mb-2">1000+</div>
+                    <div className="text-3xl font-black mb-2">-</div>
                     <div className="text-sm text-zinc-500 font-medium">Users</div>
                   </div>
                 </div>
